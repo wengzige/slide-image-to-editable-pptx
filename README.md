@@ -68,7 +68,9 @@ The skill runs in three phases, each in its own context window for maximum quali
 
 This classification step is the heart of the reconstruction process: each visible element is assigned to visual assets, native PPT structure, or editable text before the deck is rebuilt.
 
-![Classification logic preview](assets/screenshots/10.jpg)
+<p align="center">
+  <img src="assets/screenshots/10.jpg" alt="Classification logic preview" width="680">
+</p>
 
 ### Phase 1: Pixel-Level Analysis
 
@@ -203,17 +205,17 @@ These screenshots show the kind of slide-image reconstruction workflow this skil
 
 ![Slide reconstruction preview 1](assets/screenshots/第一张.jpg)
 
-#### Example 2-3
+#### Example 2
 
-| Preview 2 | Preview 3 |
+| Image Version | Editable Version |
 | :---: | :---: |
-| ![Slide reconstruction preview 2](assets/screenshots/第2张.jpg) | ![Slide reconstruction preview 3](assets/screenshots/第3张.jpg) |
+| ![Slide image version](assets/screenshots/第3张.jpg) | ![Slide editable version](assets/screenshots/第2张.jpg) |
 
-#### Example 4-5
+#### Example 3
 
-| Preview 4 | Preview 5 |
+| Image Version | Editable Version |
 | :---: | :---: |
-| ![Slide reconstruction preview 4](assets/screenshots/第4张.jpg) | ![Slide reconstruction preview 5](assets/screenshots/第5张.jpg) |
+| ![Slide image version](assets/screenshots/第4张.jpg) | ![Slide editable version](assets/screenshots/第5张.jpg) |
 
 ## Contributing
 
