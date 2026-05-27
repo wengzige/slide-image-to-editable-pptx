@@ -64,6 +64,12 @@ The skill runs in three phases, each in its own context window for maximum quali
 └──────────────────┘     └──────────────────┘     └──────────────────┘
 ```
 
+### Classification Logic
+
+This classification step is the heart of the reconstruction process: each visible element is assigned to visual assets, native PPT structure, or editable text before the deck is rebuilt.
+
+![Classification logic preview](assets/screenshots/10.jpg)
+
 ### Phase 1: Pixel-Level Analysis
 
 The agent inspects each source image and catalogs every visible element with its type, position (bounding box), layer classification, and implementation method. A **completeness self-check** (Step 1.4) ensures small icons, in-card illustrations, and decorative details are not missed.
@@ -75,6 +81,10 @@ The agent inspects each source image and catalogs every visible element with its
 For each Layer A element, the agent generates a clean PNG using `$imagegen` with precise prompts that specify content, style, colors, aspect ratio, and transparency — and always end with **"No text, no labels, no numbers."**
 
 **Output**: `assets/` folder with all generated PNGs + `_phase2_assets.md` report.
+
+The image below shows Phase 2 in practice: the agent turns identified Layer A elements into clean visual assets before the final PowerPoint assembly.
+
+![Phase 2 visual asset workflow](assets/screenshots/8和9合在一起.jpg)
 
 ### Phase 3: PPT Assembly
 
@@ -189,15 +199,21 @@ These screenshots show the kind of slide-image reconstruction workflow this skil
 
 ### Reconstruction Gallery
 
-| Preview | Preview |
+#### Example 1
+
+![Slide reconstruction preview 1](assets/screenshots/第一张.jpg)
+
+#### Example 2-3
+
+| Preview 2 | Preview 3 |
 | :---: | :---: |
-| ![Slide reconstruction preview 1](assets/screenshots/第一张.jpg) | ![Slide reconstruction preview 2](assets/screenshots/第2张.jpg) |
-| ![Slide reconstruction preview 3](assets/screenshots/第3张.jpg) | ![Slide reconstruction preview 4](assets/screenshots/第4张.jpg) |
-| ![Slide reconstruction preview 5](assets/screenshots/第5张.jpg) | ![Slide reconstruction preview 8 and 9](assets/screenshots/8和9合在一起.jpg) |
+| ![Slide reconstruction preview 2](assets/screenshots/第2张.jpg) | ![Slide reconstruction preview 3](assets/screenshots/第3张.jpg) |
 
-### Full-Width Preview
+#### Example 4-5
 
-![Slide reconstruction preview 10](assets/screenshots/10.jpg)
+| Preview 4 | Preview 5 |
+| :---: | :---: |
+| ![Slide reconstruction preview 4](assets/screenshots/第4张.jpg) | ![Slide reconstruction preview 5](assets/screenshots/第5张.jpg) |
 
 ## Contributing
 
