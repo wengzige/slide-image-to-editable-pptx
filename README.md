@@ -185,41 +185,19 @@ Some visual elements (radar scenes, scientific illustrations, campus sketches, d
 
 ## Examples
 
-### Case 1: Chemistry Thesis Defense (Dark Theme)
+These screenshots show the kind of slide-image reconstruction workflow this skill is designed for: source slides are analyzed visually, rebuilt as editable PowerPoint objects, and checked against rendered previews.
 
-|                  Source Image                   |                  Rebuilt PPTX (Editable in PowerPoint)                  |
-| :-----------------------------------------------: | :--------------------------------------------: |
-| ![Source](assets/screenshots/case1_cover_compare.png) | The left half shows the source slide; the right half shows the same slide open in PowerPoint with all elements selectable and editable. |
+### Reconstruction Gallery
 
-### Case 2: Urban Land Use Research (Light Theme)
+| Preview | Preview |
+| :---: | :---: |
+| ![Slide reconstruction preview 1](assets/screenshots/第一张.jpg) | ![Slide reconstruction preview 2](assets/screenshots/第2张.jpg) |
+| ![Slide reconstruction preview 3](assets/screenshots/第3张.jpg) | ![Slide reconstruction preview 4](assets/screenshots/第4张.jpg) |
+| ![Slide reconstruction preview 5](assets/screenshots/第5张.jpg) | ![Slide reconstruction preview 8 and 9](assets/screenshots/8和9合在一起.jpg) |
 
-|                  Rebuilt PPTX (Edit Mode)                   |                  Rendered Output                  |
-| :-----------------------------------------------: | :--------------------------------------------: |
-| ![Edit Mode](assets/screenshots/case2_cover_edit.png) | ![Rendered](assets/screenshots/case2_cover_rendered.png) |
+### Full-Width Preview
 
-### Case 3: Content Page — Research Significance
-
-|                  Rebuilt PPTX (Edit Mode)                   |                  Rendered Output                  |
-| :-----------------------------------------------: | :--------------------------------------------: |
-| ![Edit Mode](assets/screenshots/case3_content_edit.png) | ![Rendered](assets/screenshots/case3_content_rendered.png) |
-
-### Three-Layer Decomposition
-
-The core idea: decompose every slide into three layers.
-
-![Three-Layer Annotation](assets/screenshots/layer_annotation.png)
-
-- 🔴 **Red = Structure (Layer B)**: Simple geometric shapes → PPT native shapes (editable)
-- 🔵 **Blue = Content (Layer C)**: All readable text → PPT native text boxes (editable)
-- ⚫ **Black = Visual (Layer A)**: Complex illustrations → AI-generated PNG (replaceable)
-
-### Phase 2: Visual Asset Generation
-
-|                  Logo Assets                   |                  Scene & Icon Assets                  |
-| :-----------------------------------------------: | :--------------------------------------------: |
-| ![Logos](assets/screenshots/phase2_logos.png) | ![Visuals](assets/screenshots/phase2_visuals.png) |
-
-Clean AI-generated PNGs with no text baked in. University seals are cropped from source; all other visuals are generated with `$imagegen`.
+![Slide reconstruction preview 10](assets/screenshots/10.jpg)
 
 ## Contributing
 

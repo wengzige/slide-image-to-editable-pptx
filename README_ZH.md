@@ -173,43 +173,19 @@ AI 编码代理的上下文窗口有限（约 200K token）。一口气跑完意
 
 ## 效果展示
 
-### 案例 1：化学博士论文答辩（深色主题）
+这些截图展示了这个 skill 适合处理的幻灯片图片重建流程：先对源图进行视觉拆解，再重建为可编辑的 PowerPoint 对象，并用渲染预览做对照检查。
 
-|                  源图 + 重建效果对比                   |
-| :-----------------------------------------------: |
-| ![对比](assets/screenshots/case1_cover_compare.png) |
+### 重建效果画廊
 
-左半部分是源幻灯片图片，右半部分是在 PowerPoint 中打开的重建 PPTX——所有元素可选中、可编辑。
+| 预览 | 预览 |
+| :---: | :---: |
+| ![幻灯片重建预览 1](assets/screenshots/第一张.jpg) | ![幻灯片重建预览 2](assets/screenshots/第2张.jpg) |
+| ![幻灯片重建预览 3](assets/screenshots/第3张.jpg) | ![幻灯片重建预览 4](assets/screenshots/第4张.jpg) |
+| ![幻灯片重建预览 5](assets/screenshots/第5张.jpg) | ![幻灯片重建预览 8 和 9](assets/screenshots/8和9合在一起.jpg) |
 
-### 案例 2：城市土地利用研究（浅色主题）
+### 大图预览
 
-|                  PPT 编辑模式                   |                  渲染输出                  |
-| :-----------------------------------------------: | :--------------------------------------------: |
-| ![编辑模式](assets/screenshots/case2_cover_edit.png) | ![渲染输出](assets/screenshots/case2_cover_rendered.png) |
-
-### 案例 3：内容页 — 研究意义
-
-|                  PPT 编辑模式                   |                  渲染输出                  |
-| :-----------------------------------------------: | :--------------------------------------------: |
-| ![编辑模式](assets/screenshots/case3_content_edit.png) | ![渲染输出](assets/screenshots/case3_content_rendered.png) |
-
-### 三层分解示意图
-
-核心思路：将每张幻灯片分解为三层。
-
-![三层标注](assets/screenshots/layer_annotation.png)
-
-- 🔴 **红色 = 结构层 (Layer B)**：简单几何形状 → PPT 原生形状（可编辑）
-- 🔵 **蓝色 = 内容层 (Layer C)**：所有可读文字 → PPT 原生文本框（可编辑）
-- ⚫ **黑色 = 视觉层 (Layer A)**：复杂插图 → AI 生成 PNG（可替换）
-
-### Phase 2：视觉资产生成过程
-
-|                  Logo 资产                   |                  场景和图标资产                  |
-| :-----------------------------------------------: | :--------------------------------------------: |
-| ![Logos](assets/screenshots/phase2_logos.png) | ![视觉资产](assets/screenshots/phase2_visuals.png) |
-
-干净的 AI 生成 PNG，不含任何文字。大学校徽从源图裁切；其余视觉元素均由 `$imagegen` 生成。
+![幻灯片重建预览 10](assets/screenshots/10.jpg)
 
 ## 贡献
 
