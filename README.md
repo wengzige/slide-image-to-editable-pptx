@@ -15,6 +15,10 @@ Text stays editable. Complex visuals become clean AI-generated PNGs. Simple shap
 
 English | [中文](README_ZH.md)
 
+<p align="center">
+  <img src="docs/cover.png" alt="Workflow overview: slide screenshots become editable PPTX content" width="820">
+</p>
+
 </div>
 
 ---
@@ -76,13 +80,13 @@ This classification step is the heart of the reconstruction process: each visibl
 
 The agent inspects each source image and catalogs every visible element with its type, position (bounding box), layer classification, and implementation method. A **completeness self-check** (Step 1.4) ensures small icons, in-card illustrations, and decorative details are not missed.
 
-**Output**: `_analysis.md` — a structured element inventory for all slides.
+**Output**: `analysis/<project>/phase1-analysis.md` — a structured element inventory for all slides.
 
 ### Phase 2: Visual Asset Generation
 
 For each Layer A element, the agent generates a clean PNG using `$imagegen` with precise prompts that specify content, style, colors, aspect ratio, and transparency — and always end with **"No text, no labels, no numbers."**
 
-**Output**: `assets/` folder with all generated PNGs + `_phase2_assets.md` report.
+**Output**: `assets/<project>/` with all generated PNGs + `analysis/<project>/phase2-assets.md` report.
 
 The image below shows Phase 2 in practice: the agent turns identified Layer A elements into clean visual assets before the final PowerPoint assembly.
 
@@ -92,7 +96,7 @@ The image below shows Phase 2 in practice: the agent turns identified Layer A el
 
 The agent builds the PPTX using `@presentations` (PptxGenJS), stacking elements in correct z-order: background → visual assets → structural shapes → text boxes → brand elements. Slides are built in batches of 5 with rendering and self-validation after each batch.
 
-**Output**: Final `.pptx` file + rendered previews + `validation_report.md`.
+**Output**: `output/<project>/` with the final `.pptx` file, rendered previews, and `validation_report.md`.
 
 ## Quick Start
 
@@ -134,7 +138,7 @@ Do not proceed to Phase 3 until I confirm.
 **Prompt 3** — PPT Assembly:
 ```
 Proceed to Phase 3. Use @presentations to build the PPTX. 
-The PNG assets in assets/ are ready. Follow the element inventory in _analysis.md 
+The PNG assets in assets/<project>/ are ready. Follow the element inventory in analysis/<project>/phase1-analysis.md
 to reconstruct each slide — match the source images' exact positions, sizes, 
 and element density. Build slides 1-5 first, render screenshots for my review, 
 then continue with 6-10, 11-15, etc.
@@ -142,18 +146,32 @@ then continue with 6-10, 11-15, etc.
 
 ### File Structure
 
-```
+For repeatable runs, choose one stable `<project>` folder name for each PPT and
+reuse it across the major workflow folders:
+
+```text
 your-project/
-├── source_slides/           # Your input slide images
+├── source_slides/<project>/     # Input slide images for one PPT
 │   ├── slide_01.png
 │   ├── slide_02.png
 │   └── ...
-├── assets/                  # Generated PNG visual assets (Phase 2 output)
-├── output/                  # Final PPTX (Phase 3 output)
-├── _analysis.md             # Element inventory (Phase 1 output)
-├── _phase2_assets.md        # Asset generation report (Phase 2 output)
-└── validation_report.md     # Quality report (Phase 4 output)
+├── analysis/<project>/          # Phase notes and validation reports
+│   ├── phase1-analysis.md
+│   ├── phase2-assets.md
+│   └── validation_report.md
+├── assets/<project>/            # Generated or preserved Layer A PNG assets
+├── output/<project>/            # Final PPTX and rendered previews
+│   ├── final.pptx
+│   ├── previews/
+│   └── render/
+├── scripts/<project>/           # Optional project-specific helper scripts
+└── scripts/_shared/             # Optional helpers reused across projects
 ```
+
+Keep the final PPTX directly under `output/<project>/`. Avoid timestamp wrapper
+folders such as `output/manual-YYYYMMDD-HHMM/presentations/...`, and do not put
+project files directly in the root of `source_slides/`, `analysis/`, `assets/`,
+`output/`, or `scripts/`.
 
 ## Key Design Decisions
 

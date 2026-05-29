@@ -29,6 +29,25 @@ Every pixel in the source image belongs to exactly one of three layers:
 
 ## Workflow
 
+### Workspace Organization
+
+Before Phase 1 starts, choose one stable project folder name for the PPT and
+reuse it across the workflow:
+
+```text
+source_slides/<project>/   Source slide screenshots for one PPT.
+analysis/<project>/        Phase 1/2/3 notes and validation reports.
+assets/<project>/          Generated or preserved Layer A visual assets.
+output/<project>/          Final PPTX and rendered previews.
+scripts/<project>/         Optional project-specific helper scripts.
+scripts/_shared/           Optional helpers reused across projects.
+```
+
+Do not place project files directly in the root of `source_slides/`,
+`analysis/`, `assets/`, `output/`, or `scripts/`. Keep the final PPTX directly
+under `output/<project>/`; avoid timestamp wrapper folders such as
+`output/manual-YYYYMMDD-HHMM/presentations/...`.
+
 ### Phase 1: Pixel-Level Analysis
 
 For EACH source image, produce a structured analysis. Do not skip any slide. Do not infer from one slide what another contains — inspect each one.
@@ -86,6 +105,9 @@ For each slide, ask yourself these questions:
 
 If this second pass finds any missed elements, add them to the element list with a note: `"found_in": "completeness_check"`. Do NOT remove or modify any existing elements — only add.
 
+Write the completed Phase 1 report to
+`analysis/<project>/phase1-analysis.md`.
+
 ### Phase 2: Visual Asset Generation
 
 For each Layer A element, generate a clean PNG using `$imagegen`.
@@ -115,6 +137,9 @@ Examples:
 - `s01_bottom_wave_decoration.png` — cover slide's bottom decorative wave
 - `s03_system_diagram_center.png` — slide 3's central system model illustration
 - `s05_rmse_chart_figure.png` — slide 5's RMSE result plot (if preserved as figure)
+
+Save generated assets under `assets/<project>/`, and write the Phase 2 asset
+report to `analysis/<project>/phase2-assets.md`.
 
 ### Phase 3: PPT Construction
 
@@ -149,6 +174,9 @@ function pxToInches(px_x, px_y, img_w, img_h) {
 ```
 
 Measure element positions from the source image precisely. Don't guess.
+
+Save the generated deck, rendered previews, and validation report under
+`output/<project>/`. The final PPTX should be directly in that folder.
 
 #### Font Handling
 
